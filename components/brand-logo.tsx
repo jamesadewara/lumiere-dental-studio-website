@@ -7,7 +7,7 @@ type BrandLogoProps = {
 export function BrandLogo({ size = 32 }: BrandLogoProps) {
   return (
     <Image
-      src="/logo.svg"
+      src="/logo.png"
       alt=""
       aria-hidden="true"
       width={size}

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { JourneyCanvas } from '@/components/JourneyCanvas'
 import { PageTransition } from '@/components/PageTransition'
 import { SmoothScroll } from '@/components/SmoothScroll'
+import { FloatingMotifs } from '@/components/floating-motifs'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <SmoothScroll>
           <JourneyCanvas />
+          <FloatingMotifs />
           <PageTransition>{children}</PageTransition>
         </SmoothScroll>
       </body>

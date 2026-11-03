@@ -12,6 +12,19 @@
 :root { color-scheme: light; --background: #F5F1EA; --foreground: #0B1220; }
 * { box-sizing: border-box; }
 html { scroll-behavior: auto; overflow-x: clip; }
-body { width: 100%; margin: 0; overflow-x: clip; background: #F5F1EA; color: #0B1220; font-family: Arial, Helvetica, sans-serif; }
+body { width: 100%; margin: 0; overflow-x: clip; background: #F5F1EA; color: #0B1220; font-family: inherit; }
 ::selection { background: #C9A227; color: #0B1220; }
+.floating-motifs { position: fixed; inset: 0; z-index: 10; overflow: hidden; pointer-events: none; }
+.floating-motif { position: absolute; display: block; font-size: clamp(.8rem, 1.3vw, 1.2rem); line-height: 1; opacity: 0.3; will-change: transform; }
+.floating-motif.text-gold { color: #C9A227; }
+.floating-motif.text-cream { color: #FFFDF7; text-shadow: 0 1px 8px rgb(11 18 32 / 12%); }
+@keyframes feather-fall {
+  0% { opacity: 0; transform: translate3d(var(--drift-start), -12vh, 0) rotate(var(--spin-start)); }
+  12% { opacity: var(--feather-opacity); }
+  28% { transform: translate3d(var(--drift-first), 18vh, 0) rotate(calc(var(--spin-start) + 35deg)); }
+  52% { opacity: var(--feather-opacity); transform: translate3d(var(--drift-second), 52vh, 0) rotate(calc(var(--spin-start) - 25deg)); }
+  78% { opacity: 0; transform: translate3d(var(--drift-end), 88vh, 0) rotate(var(--spin-end)); }
+  100% { opacity: 0; transform: translate3d(var(--drift-end), 112vh, 0) rotate(var(--spin-end)); }
+}
+.floating-motif { top: 0; animation: feather-fall linear infinite both; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

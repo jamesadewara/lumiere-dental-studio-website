@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollHighlight } from './scroll-highlight'
 
 export function BookSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -60,10 +61,13 @@ export function BookSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="book" className="flex min-h-screen items-end bg-gold/70 px-5 pb-10 pt-24 sm:px-10 lg:px-16 lg:pb-16">
+    <section ref={sectionRef} id="book" className="flex min-h-screen items-end px-5 pb-10 pt-24 sm:px-10 lg:px-16 lg:pb-16" style={{ background: 'linear-gradient(135deg, rgba(201,162,39,0.78) 0%, rgba(211,177,70,0.84) 55%, rgba(196,156,34,0.78) 100%)' }}>
       <div className="mx-auto w-full max-w-[1440px]">
-        <p className="mb-10 text-xs font-semibold uppercase tracking-[0.22em] text-ink/60">05 / Make it yours</p>
-        <h2 data-book-title className="max-w-5xl text-[clamp(3.5rem,12vw,10rem)] font-semibold leading-[0.82] tracking-[-0.08em] text-ink">Your turn<span className="text-ivory">.</span></h2>
+        <h2
+        
+          className="max-w-5xl text-[clamp(3.5rem,12vw,10rem)] font-semibold leading-[0.82] tracking-[-0.08em] text-ink"
+        >Your turn.</h2>
+   
         <div className="mt-12 grid gap-10 border-t border-ink/20 pt-7 md:grid-cols-3">
           <div>
             <p className="mb-3 text-xs uppercase tracking-[0.16em] text-ink/55">Start a conversation</p>
