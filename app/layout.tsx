@@ -1,30 +1,38 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import { JourneyCanvas } from '@/components/JourneyCanvas'
+import { PageTransition } from '@/components/PageTransition'
+import { SmoothScroll } from '@/components/SmoothScroll'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Lumière Dental Studio | Premium Dentistry in Lekki',
-  description: 'Thoughtful, modern dental care for the way you live, laugh, and show up in Lagos.',
-  generator: 'v0.app',
+  description: 'Thoughtful, modern dental care in Lekki, Lagos. Lumière Dental Studio offers premium dentistry for the way you live, laugh, and show up.',
+  applicationName: 'Lumière Dental Studio',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: '/apple-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    locale: 'en_NG',
+    siteName: 'Lumière Dental Studio',
+    title: 'Lumière Dental Studio | Premium Dentistry in Lekki',
+    description: 'Thoughtful, modern dental care in Lekki, Lagos. Premium dentistry for the way you live, laugh, and show up.',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Lumière Dental Studio | Premium Dentistry in Lekki',
+    description: 'Thoughtful, modern dental care in Lekki, Lagos. Premium dentistry for the way you live, laugh, and show up.',
   },
 }
 
@@ -41,8 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <SmoothScroll>
+          <JourneyCanvas />
+          <PageTransition>{children}</PageTransition>
+        </SmoothScroll>
       </body>
     </html>
   )

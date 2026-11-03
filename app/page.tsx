@@ -6,8 +6,9 @@ import { ToolsSection } from '@/components/tools-section'
 import { TreatmentsSection } from '@/components/treatments-section'
 import { ProofSection } from '@/components/proof-section'
 import { BookSection } from '@/components/book-section'
+import { SiteFooter } from '@/components/site-footer'
 import { WhatsappFloat } from '@/components/whatsapp-float'
 
 export default function Page() {
-  return <><SiteNav /><main><HeroSection /><ProblemSection /><JourneySection /><ToolsSection /><TreatmentsSection /><ProofSection /><BookSection /></main><WhatsappFloat /></>
+  return <><SiteNav /><main><HeroSection /><ProblemSection /><JourneySection /><ToolsSection /><TreatmentsSection /><ProofSection /><BookSection /></main><SiteFooter /><WhatsappFloat /></>
 }
